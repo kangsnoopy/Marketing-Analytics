@@ -23,16 +23,17 @@ prefixes table contains prefix labels.
 assignment2 table contains the donner information for the particular campaingn for which we want to predict.
 
 R:
+
 Fist step is to extract relevant features. The main idea is to extract amount, frequency, recency features according to different periods (e.g. last 2,5,10 years,) and different payment methods (PA, DO), channel, etc. and profil information for the donnors like prefix.
 
-In th modeling part, two methods were used. Scoring and random forest.
+In the modeling part, two methods were used. Scoring and random forest.
 
-Scoring model
+Scoring model:
 
 Scoring contains a logit model to predict the likelihood for each donner to response to this campaign, and a regression model (normal linear regression or ridge regression) to predict the amount of donnation for each person if he/she is about to donate. Then we multiply the probability and the amount to get the extimated amount. If this amount is larger than 2 which is the cost of solicitation, the charity will solicit this person, otherwise no. 
 This model worked well and we got a net marfin of around 213000 euros with a cost of around 74000 euro.
 
-Random Forest
+Random Forest:
 
 The second model is random forest. we use all the features. Result was not applaudable. Dataset is notably largr so the trees have overfit. Further step is to try reducing the max depth of the tree or increasing minimum information gain. 
 
